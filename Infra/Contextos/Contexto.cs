@@ -8,12 +8,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace Infra.Contexto
+namespace Infra.Contextos
 {
-    public class _Contexto : DbContext
+    public class Contexto : DbContext
     {
         public DbSet<Produto> Prod { get; set; }
         public DbSet<Usuario> User { get; set; }
+
+        private string _qual;
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -29,6 +31,7 @@ namespace Infra.Contexto
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json")
                 .Build();
+
 
             optionsBuilder.UseSqlServer(config.GetConnectionString("DefaultConnection"));
         }

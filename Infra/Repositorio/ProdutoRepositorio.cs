@@ -1,6 +1,6 @@
 ﻿using Dominio.Contratos.Interfaces;
 using Dominio.Modelo.Entidades;
-using Infra.Contexto;
+using Infra.Contextos;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -12,7 +12,7 @@ namespace Infra.Repositorio
     {
         public class ProdutoRepositorio : Repository<Produto>, ICategoryRepository
         {
-            public ProdutoRepositorio(_Contexto context) : base(context)
+            public ProdutoRepositorio(Contextos.Contexto context) : base(context)
             {
             }
         }

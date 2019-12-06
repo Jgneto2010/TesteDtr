@@ -5,13 +5,13 @@ using System.Text;
 
 namespace Dominio.Modelo.Entidades
 {
-    public class Usuario : Produto
+    public class Usuario 
     {
-        public int Id { get; set; }
-        public string NomeUsuario { get; set; }
-        public string EmailUsuario { get; set; }
-        public string PasswordUsuario { get; set; }
-        public string EnderecoUsuario { get; set; }
+        public int Id { get; protected set; }
+        public string NomeUsuario { get; protected set; }
+        public string EmailUsuario { get; protected set; }
+        public string PasswordUsuario { get; protected set; }
+        public string EnderecoUsuario { get; protected set; }
 
         public void password(string password, string confirmPassword)
         {
