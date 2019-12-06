@@ -16,12 +16,24 @@ namespace Infra.Contexto
         public DbSet<Usuario> User { get; set; }
 
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            optionBuilder.UseSqlServer(Runtime.ConnectionString);
+            modelBuilder.ApplyConfiguration(new Mapeamento());
+            modelBuilder.ApplyConfiguration(new MapeamentoUsuario());
+            base.OnModelCreating(modelBuilder);
         }
 
-        
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            var config = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json")
+                .Build();
+
+            optionsBuilder.UseSqlServer(config.GetConnectionString("DefaultConnection"));
+        }
+
+
 
     }
 }
