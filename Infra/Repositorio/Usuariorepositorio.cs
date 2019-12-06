@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Infra.Repositorio
 {
-    class Usuariorepositorio
+    public class Usuariorepositorio
     {
     }
 }

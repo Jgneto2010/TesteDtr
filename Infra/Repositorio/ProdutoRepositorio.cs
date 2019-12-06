@@ -10,18 +10,11 @@ namespace Infra.Repositorio
 {
     public class ProdutoRepositorio : IProdutoRepositorio
     {
-        public ProdutoRepositorio(_Contexto context): base(context)
+        public class ProdutoRepositorio : Repository<Produto>, ICategoryRepository
         {
-        }
-
-        public void AddCategory(Category category)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Product> GetAllProductsCategories()
-        {
-            return Db.Products.Include(c => c.Category).ToList();
+            public ProdutoRepositorio(_Contexto context) : base(context)
+            {
+            }
         }
 
     }

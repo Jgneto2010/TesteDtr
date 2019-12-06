@@ -11,16 +11,28 @@ namespace Infra.Maps
     {
         public void Configure(EntityTypeBuilder<Usuario> builder)
         {
-            builder.Property(e => e.Name)
-                   .HasColumnType("varchar(150)")
+            builder.Property(e => e.Id)
+                   .HasColumnType("varchar(40)")
                    .IsRequired();
 
-            builder.HasMany(c => c.Products)
-                    .WithOne(e => e.Category);
+            builder.Property(e => e.NomeUsuario)
+                   .HasColumnType("String(50)")
+                   .IsRequired();
 
-            builder.Ignore(e => e.ValidationResult);
-            builder.Ignore(e => e.CascadeMode);
-            builder.ToTable("Categories");
+            builder.Property(e => e.PasswordUsuario)
+                   .HasColumnType("String")
+                   .IsRequired();
+
+            builder.Property(e => e.EnderecoUsuario)
+                   .HasColumnType("String(30)")
+                   .IsRequired();
+
+            builder.Property(e => e.EmailUsuario)
+                   .HasColumnType("String(30)")
+                   .IsRequired();
+
+
+            
         }
     }
 }
