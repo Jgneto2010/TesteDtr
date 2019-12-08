@@ -20,21 +20,16 @@ namespace Infra.Maps
                    .IsRequired();
            
             builder.Property(e => e.CodigoProduto)
-                   .HasColumnType("Decimal(40)")
+                   .HasColumnType("decimal")
                    .IsRequired();
            
             builder.Property(e => e.PrecoProduto)
-                   .HasColumnType("Char(30)")
+                   .HasColumnType("decimal")
                    .IsRequired();
 
             builder.Property(e => e.ValidadeProduto)
                    .HasColumnType("DateTime")
                    .IsRequired();
-
-
-            
-
-            
         }
     }
 }

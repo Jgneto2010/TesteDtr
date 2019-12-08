@@ -12,31 +12,17 @@ namespace Infra.Contextos
 {
     public class Contexto : DbContext
     {
-        public DbSet<Produto> Prod { get; set; }
-        public DbSet<Usuario> User { get; set; }
-
-        private string _qual;
-
+        public DbSet<Produto> Produtos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new Mapeamento());
-            modelBuilder.ApplyConfiguration(new MapeamentoUsuario());
             base.OnModelCreating(modelBuilder);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var config = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json")
-                .Build();
-
-
-            optionsBuilder.UseSqlServer(config.GetConnectionString("DefaultConnection"));
+            optionsBuilder.UseSqlServer("Server=JULIANNO; Database = Mercado; User ID = sa; Password = garciajtc241188;");
         }
-
-
-
     }
 }
