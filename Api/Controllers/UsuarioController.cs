@@ -32,9 +32,9 @@ namespace Api.Controllers
         [HttpPost]
         public ActionResult<IEnumerable<Usuario>> Post([FromBody]Usuario usuario)
         {
-            var Validacao = new UsuarioValidator().Validate(usuario);
+            var ValidacaoUsuario = new UsuarioValidator().Validate(usuario);
 
-            if (Validacao.IsValid)
+            if (ValidacaoUsuario.IsValid)
             {
                 _usuarioRepositorio.Add(usuario);
                 _usuarioRepositorio.SaveChanges();

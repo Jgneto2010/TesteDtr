@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Dominio.Contratos.Interfaces;
 using Dominio.Modelo.Entidades;
+using Dominio.Validacoes;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -31,8 +32,17 @@ namespace Api.Controllers
         [HttpPost]
         public ActionResult<IEnumerable<Produto>> Post([FromBody]Produto produto)
         {
-            _produtoRepositorio.Add(produto);
-            _produtoRepositorio.SaveChanges();
+            var ValidacaoProduto = new ProdutoValidator().Validate(produto);
+
+            if (ValidacaoProduto.IsValid)
+            {
+                _produtoRepositorio.Add(produto);
+                _produtoRepositorio.SaveChanges();
+            }
+            else
+            {
+                return BadRequest();
+            }
 
             return Ok();
         }
