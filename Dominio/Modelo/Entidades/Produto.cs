@@ -6,11 +6,11 @@ namespace Dominio.Modelo.Entidades
 {
     public class Produto
     {
-        public int Id { get; set; }
-        public string NomeProduto { get; set; }
-        public decimal CodigoProduto { get; set; }
-        public DateTime ValidadeProduto { get; set; }
-        public decimal PrecoProduto { get; set; }
+        public int Id { get; private set; }
+        public string NomeProduto { get; private set; }
+        public decimal CodigoProduto { get; private set; }
+        public DateTime ValidadeProduto { get; private set; }
+        public decimal PrecoProduto { get; private set; }
     }
 }
 

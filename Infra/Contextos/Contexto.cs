@@ -13,6 +13,7 @@ namespace Infra.Contextos
     public class Contexto : DbContext
     {
         public DbSet<Produto> Produtos { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -22,7 +23,7 @@ namespace Infra.Contextos
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=JULIANNO; Database = Mercado; User ID = sa; Password = garciajtc241188;");
+            optionsBuilder.UseSqlServer("Server=Joao; Database = Mercado; User ID = sa; Password = garciajtc241188;");
         }
     }
 }

@@ -13,6 +13,7 @@ namespace Api.Controllers
     [ApiController]
     public class ProdutoController : ControllerBase
     {
+        //Inversão de dependencia
         private readonly IProdutoRepositorio _produtoRepositorio;
         public ProdutoController(IProdutoRepositorio produtoRepositorio)
         {
@@ -22,6 +23,7 @@ namespace Api.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Produto>> Get()
         {
+            
             return _produtoRepositorio.GetAll().ToList();
         }
 

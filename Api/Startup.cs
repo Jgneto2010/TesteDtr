@@ -38,10 +38,10 @@ namespace Api
                 s.SwaggerDoc("v1", new Info
                 {
                     Version = "v1",
-                    Title = "CHALLENGE API",
-                    Description = "API Challenge Zero To One Search",
+                    Title = "Teste João",
+                    Description = "Teste Com Docker",
                     TermsOfService = "Description",
-                    Contact = new Contact { Name = "Julianno Garcia", Email = "juliannotcg@hotmail.com", Url = "https://github.com/Juliannotcg/ChallengeZeroToOneSearch" },
+                    Contact = new Contact { Name = "João garcia neto", Email = "jgneto2010@hotmail.com", Url = "https://github.com/Juliannotcg/ChallengeZeroToOneSearch" },
                     License = new License { Name = "MIT", Url = "https://github.com/Juliannotcg/ChallengeZeroToOneSearch" }
                 });
 
