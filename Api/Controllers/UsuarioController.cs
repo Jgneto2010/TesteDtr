@@ -29,6 +29,7 @@ namespace Api.Controllers
         }
 
         //Este Metodo adiciona no banco Um Novo usuário e Salva esta ação
+        //Usando fluentValidatio
         [HttpPost]
         public ActionResult<IEnumerable<Usuario>> Post([FromBody]Usuario usuario)
         {
