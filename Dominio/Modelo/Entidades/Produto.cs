@@ -11,6 +11,7 @@ namespace Dominio.Modelo.Entidades
         public decimal CodigoProduto { get; private set; }
         public DateTime ValidadeProduto { get; private set; }
         public decimal PrecoProduto { get; private set; }
+        public List<Usuario> ListaUsuarios { get; private set; }
     }
 }
 

@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Api.Controllers
 {
+    //Essa é a Rota da Classe UsuarioController
     [Route("api/[controller]")]
     [ApiController]
     public class UsuarioController : ControllerBase
@@ -19,13 +20,16 @@ namespace Api.Controllers
         {
             _usuarioRepositorio = usuarioRepositorio;
         }
-
+        
+        //Este metodo traz toda a lista de usuários do banco
         [HttpGet]
         public ActionResult<IEnumerable<Usuario>> Get()
         {
             return _usuarioRepositorio.GetAll().ToList();
         }
 
+
+        //Este Metodo adiciona no banco Um Novo usuário e Salva esta ação
         [HttpPost]
         public ActionResult<IEnumerable<Usuario>> Post([FromBody]Usuario usuario)
         {

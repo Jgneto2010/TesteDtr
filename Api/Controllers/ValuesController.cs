@@ -17,12 +17,6 @@ namespace Api.Controllers
             return new string[] { "Seja Bem Vindo" };
         }
 
-        // GET api/values/
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
-        {
-            return "Teste";
-        }
 
         // POST api/values
         [HttpPost]
