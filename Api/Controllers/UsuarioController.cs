@@ -1,5 +1,6 @@
 ﻿using Dominio.Contratos.Interfaces;
 using Dominio.Modelo.Entidades;
+using Dominio.Validacoes;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,6 @@ namespace Api.Controllers
     [ApiController]
     public class UsuarioController : ControllerBase
     {
-       
         //Inversão de dependencia
         private readonly IUsuarioRepositorio _usuarioRepositorio;
         public UsuarioController(IUsuarioRepositorio usuarioRepositorio)
@@ -28,14 +28,21 @@ namespace Api.Controllers
             return _usuarioRepositorio.GetAll().ToList();
         }
 
-
         //Este Metodo adiciona no banco Um Novo usuário e Salva esta ação
         [HttpPost]
         public ActionResult<IEnumerable<Usuario>> Post([FromBody]Usuario usuario)
         {
+            var Validacao = new UsuarioValidator().Validate(usuario);
 
-            _usuarioRepositorio.Add(usuario);
-            _usuarioRepositorio.SaveChanges();
+            if (Validacao.IsValid)
+            {
+                _usuarioRepositorio.Add(usuario);
+                _usuarioRepositorio.SaveChanges();
+            }
+            else
+            {
+                return BadRequest();
+            }
 
             return Ok();
         }

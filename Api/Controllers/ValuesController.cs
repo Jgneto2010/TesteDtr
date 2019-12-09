@@ -17,7 +17,6 @@ namespace Api.Controllers
             return new string[] { "Seja Bem Vindo" };
         }
 
-
         // POST api/values
         [HttpPost]
         public void Post([FromBody] string value)

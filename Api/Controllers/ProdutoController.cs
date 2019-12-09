@@ -17,26 +17,24 @@ namespace Api.Controllers
         private readonly IProdutoRepositorio _produtoRepositorio;
         public ProdutoController(IProdutoRepositorio produtoRepositorio)
         {
+            
             _produtoRepositorio = produtoRepositorio;
         }
+        
         //Esse Metodo traz a lista de produtos
         [HttpGet]
         public ActionResult<IEnumerable<Produto>> Get()
         {
-            
             return _produtoRepositorio.GetAll().ToList();
         }
-
 
         [HttpPost]
         public ActionResult<IEnumerable<Produto>> Post([FromBody]Produto produto)
         {
-
             _produtoRepositorio.Add(produto);
             _produtoRepositorio.SaveChanges();
 
             return Ok();
         }
-
     }
 }
