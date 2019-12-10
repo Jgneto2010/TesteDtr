@@ -23,7 +23,7 @@ namespace Infra.Contextos
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=Joao; Database = Mercado; User ID = sa; Password = garciajtc241188;");
+            optionsBuilder.UseSqlServer("Server=localhost,1433; Database = BancoDockerAspNet; User ID = sa; Password = MadreTeresa387122;");
         }
     }
 }

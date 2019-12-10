@@ -29,6 +29,7 @@ namespace Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IProdutoRepositorio, ProdutoRepositorio>();
+            services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
             services.AddScoped<Contexto>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);

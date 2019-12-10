@@ -29,9 +29,7 @@ namespace Infra.Maps
                        .HasColumnType("string")
                        .IsRequired();
 
-                builder.Property(e => e.ProdutosUsuario)
-                       .HasColumnType("ProdutoUsuario")
-                       .IsRequired();
+                
             }
         }
     }

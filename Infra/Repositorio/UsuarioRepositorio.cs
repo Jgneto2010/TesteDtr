@@ -1,4 +1,5 @@
-﻿using Dominio.Modelo.Entidades;
+﻿using Dominio.Contratos.Interfaces;
+using Dominio.Modelo.Entidades;
 using Infra.Contextos;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Text;
 
 namespace Infra.Repositorio
 {
-    public class UsuarioRepositorio
+    public class UsuarioRepositorio: IUsuarioRepositorio
     {
         private readonly Contexto _contexto;
         public UsuarioRepositorio(Contexto contexto)
@@ -35,6 +36,11 @@ namespace Infra.Repositorio
             return _contexto.Produtos.Where(c => c.NomeProduto == nome).First();
         }
 
+        public Produto ObterUsuarioPeloId(int Id)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Remove(int id)
         {
             var usuario = GetById(id);
@@ -50,6 +56,10 @@ namespace Infra.Repositorio
         {
             _contexto.Produtos.Update(obj);
         }
-        
+
+        public void UpDate(Usuario obj)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

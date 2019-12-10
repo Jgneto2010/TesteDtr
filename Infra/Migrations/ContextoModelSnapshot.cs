@@ -43,6 +43,25 @@ namespace Infra.Migrations
 
                     b.ToTable("Produtos");
                 });
+
+            modelBuilder.Entity("Dominio.Modelo.Entidades.Usuario", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ConfirmaPasswordUsuario");
+
+                    b.Property<string>("EmailUsuario");
+
+                    b.Property<string>("NomeUsuario");
+
+                    b.Property<string>("PasswordUsuario");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Usuarios");
+                });
 #pragma warning restore 612, 618
         }
     }

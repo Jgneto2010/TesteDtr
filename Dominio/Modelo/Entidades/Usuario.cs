@@ -6,11 +6,15 @@ namespace Dominio.Modelo.Entidades
 {
     public class Usuario
     {
-        public int Id { get; private set; }
-        public string NomeUsuario { get; private set; }
-        public string EmailUsuario { get; private set; }
-        public string PasswordUsuario { get; private set; }
-        public string ConfirmaPasswordUsuario { get; private set; }
-        public List<Produto> ProdutosUsuario { get; private set; }
+        public Usuario()
+        {
+
+        }
+        public int Id { get;  set; }
+        public string NomeUsuario { get;  set; }
+        public string EmailUsuario { get;  set; }
+        public string PasswordUsuario { get;  set; }
+        public string ConfirmaPasswordUsuario { get;  set; }
+       
     }
 }
