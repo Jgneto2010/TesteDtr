@@ -24,9 +24,9 @@ namespace Infra.Repositorio
             return _contexto.Usuarios.ToList();
         }
 
-        public Produto GetById(int id)
+        public Usuario GetById(int id)
         {
-            return _contexto.Produtos.Where(c => c.Id == id).First();
+            return _contexto.Usuarios.Where(c => c.Id == id).First();
         }
 
 
@@ -37,8 +37,8 @@ namespace Infra.Repositorio
 
         public void Remove(int id)
         {
-            var produto = GetById(id);
-            _contexto.Produtos.Remove(produto);
+            var usuario = GetById(id);
+            _contexto.Usuarios.Remove(usuario);
         }
 
         public int SaveChanges()
@@ -50,5 +50,6 @@ namespace Infra.Repositorio
         {
             _contexto.Produtos.Update(obj);
         }
+        
     }
 }

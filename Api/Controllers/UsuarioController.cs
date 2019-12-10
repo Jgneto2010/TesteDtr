@@ -26,10 +26,12 @@ namespace Api.Controllers
         public ActionResult<IEnumerable<Usuario>> Get()
         {
             return _usuarioRepositorio.GetAll().ToList();
+            
         }
 
         //Este Metodo adiciona no banco Um Novo usuário e Salva esta ação
         //Usando fluentValidation
+        
         [HttpPost]
         public ActionResult<IEnumerable<Usuario>> Post([FromBody]Usuario usuario)
         {
