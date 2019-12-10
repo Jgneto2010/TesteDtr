@@ -28,6 +28,7 @@ namespace Api.Controllers
         {
             return _produtoRepositorio.GetAll().ToList();
         }
+        
         //Esse é o metodo que insere um produto no banco
         //Usando FluentValidation
         [HttpPost]

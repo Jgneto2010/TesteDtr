@@ -3,17 +3,30 @@ using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Dominio.Validacoes
 {
     public class ProdutoValidator : AbstractValidator<Produto>
     {
-        public ProdutoValidator()
+        public void ValidNomeProduto()
         {
             RuleFor(x => x.NomeProduto).NotEmpty().WithMessage("Insira Um Nome de um produto");
-            RuleFor(x => x.CodigoProduto).NotEmpty().WithMessage("insira um Codigo para Cadastrar o produto");
-            RuleFor(x => x.PrecoProduto).NotEmpty().WithMessage("insira um Valor");
-           
+        }
+
+        public void ValidValidadeProduto()
+        {
+            RuleFor(x => x.ValidadeProduto).NotEmpty().WithMessage("Insira Um Nome de um produto");
+        }
+
+        public void ValidCodigoProduto()
+        {
+            RuleFor(x => x.CodigoProduto).NotEmpty().WithMessage("Insira Um Nome de um produto");
+        }
+
+        public void ValidPrecoProduto()
+        {
+            RuleFor(x => x.PrecoProduto).NotEmpty().WithMessage("Insira Um Nome de um produto");            
         }
     }
 }
