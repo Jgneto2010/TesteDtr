@@ -11,6 +11,7 @@ namespace Infra.Maps
     {
         public void Configure(EntityTypeBuilder<Produto> builder)
         {
+            
             builder.Property(e => e.Id)
                    .HasColumnType("Int")
                    .IsRequired();

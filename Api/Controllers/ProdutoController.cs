@@ -18,16 +18,9 @@ namespace Api.Controllers
         private readonly IProdutoRepositorio _produtoRepositorio;
         public ProdutoController(IProdutoRepositorio produtoRepositorio)
         {
-            
             _produtoRepositorio = produtoRepositorio;
         }
         
-        //Esse Metodo traz a lista de produtos
-        [HttpGet]
-        public ActionResult<IEnumerable<Produto>> Get()
-        {
-            return _produtoRepositorio.GetAll().ToList();
-        }
         
         //Esse é o metodo que insere um produto no banco
         //Usando FluentValidation

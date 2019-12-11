@@ -21,9 +21,11 @@ namespace Infra.Contextos
             base.OnModelCreating(modelBuilder);
         }
 
+        /*
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=localhost,1433; Database = BancoDockerAspNet; User ID = sa; Password = MadreTeresa387122;");
+            optionsBuilder.UseSqlServer("Server=localhost,1433; Database = BancoTesteDockerS; User ID = sa; Password = MadreTeresa387122;");
         }
+        */
     }
 }
