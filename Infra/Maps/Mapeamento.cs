@@ -31,6 +31,11 @@ namespace Infra.Maps
             builder.Property(e => e.ValidadeProduto)
                    .HasColumnType("DateTime")
                    .IsRequired();
+            //Aqui Foi Criado um relacionamento entre a Aplicação e os serviços
+            builder.HasOne(e => e.Usuario)
+            .WithMany(e => e.Servicos)
+            .HasForeignKey(e => e.IdUsuario)
+            .IsRequired();
         }
     }
 }

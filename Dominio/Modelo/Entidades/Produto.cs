@@ -7,12 +7,14 @@ namespace Dominio.Modelo.Entidades
     public class Produto
     {
         public Produto() { }
-        public int Id { get;  set; }
+        public Guid Id { get;  set; }
         public string NomeProduto { get;  set; }
         public decimal CodigoProduto { get;  set; }
         public DateTime ValidadeProduto { get;  set; }
         public decimal PrecoProduto { get;  set; }
         
+
+
     }
 }
 
