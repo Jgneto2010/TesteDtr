@@ -13,9 +13,12 @@ namespace Infra.Maps
         {
             public void Configure(EntityTypeBuilder<Usuario> builder)
             {
+                builder.HasKey(x => x.Id);
+                builder.Property(x => x.Id)
+                    .HasColumnName("ID_SERVICO");
                 builder.Property(e => e.Id)
-                       .HasColumnType("Int")
-                       .IsRequired();
+                    .IsRequired();
+
 
                 builder.Property(e => e.NomeUsuario)
                        .HasColumnType("varchar(40)")
@@ -29,7 +32,13 @@ namespace Infra.Maps
                        .HasColumnType("string")
                        .IsRequired();
 
-                
+                //Aqui Foi Criado um relacionamento entre o usuario e o produto
+                builder.HasOne(e => e.produto)
+                .WithMany(e => e.Usuario)
+                .HasForeignKey(e => e.IdUsuario)
+                .IsRequired();
+
+
             }
         }
     }
