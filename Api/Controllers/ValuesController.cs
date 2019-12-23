@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Api.ViewModel;
+using Dominio.Modelo.Entidades;
+using Infra.Repositorio;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
@@ -17,11 +20,7 @@ namespace Api.Controllers
             return new string[] { "Seja Bem Vindo" };
         }
 
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
+        
 
         // PUT api/values/5
         [HttpPut("{id}")]
