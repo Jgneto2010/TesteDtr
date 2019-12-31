@@ -8,9 +8,9 @@ namespace Api.ViewModel
     public class AddProdutoModel
     {
         public string NomeProduto { get; set; }
-        public decimal CodigoProduto { get; set; }
-        public DateTime ValidadeProduto { get; set; }
-        public decimal PrecoProduto { get; set; }
-        public UsuarioDetalheModel Usuario { get; set; }
+        public int Codigo { get; set; }
+        public DateTime Validade { get; set; }
+        public decimal Preco { get; set; }
+        
     }
 }

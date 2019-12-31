@@ -1,7 +1,7 @@
 ﻿using Dominio.Contratos.Interfaces;
 using Dominio.Modelo.Entidades;
 using Infra.Contextos;
-
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -25,7 +25,8 @@ namespace Infra.Repositorio
             return _contexto.Produtos.ToList();
         }
 
-        public Produto GetById(int id)
+        //testes
+        public Produto GetById(Guid id)
         {
             return _contexto.Produtos.Where(c => c.Id == id).First();
         }
@@ -35,7 +36,7 @@ namespace Infra.Repositorio
             return _contexto.Produtos.Where(c => c.NomeProduto == nome).First();
         }
 
-        public void Remove(int id)
+        public void Remove(Guid id)
         {
             var produto = GetById(id);
             _contexto.Produtos.Remove(produto);

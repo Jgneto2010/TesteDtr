@@ -33,10 +33,10 @@ namespace Infra.Maps
                        .IsRequired();
 
                 //Aqui Foi Criado um relacionamento entre o usuario e o produto
-                builder.HasOne(e => e.produto)
-                .WithMany(e => e.Usuario)
-                .HasForeignKey(e => e.IdUsuario)
-                .IsRequired();
+                //builder.HasOne(e => e.Usuario)
+                //.WithMany(e => e.Produto)
+                //.HasForeignKey(e => e.IdUsuario)
+                //.IsRequired();
 
 
             }

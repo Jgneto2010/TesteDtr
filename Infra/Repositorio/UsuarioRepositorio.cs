@@ -25,7 +25,7 @@ namespace Infra.Repositorio
             return _contexto.Usuarios.ToList();
         }
 
-        public Usuario GetById(int id)
+        public Usuario GetById(Guid id)
         {
             return _contexto.Usuarios.Where(c => c.Id == id).First();
         }
@@ -36,12 +36,12 @@ namespace Infra.Repositorio
             return _contexto.Produtos.Where(c => c.NomeProduto == nome).First();
         }
 
-        public Produto ObterUsuarioPeloId(int Id)
+        public Produto ObterUsuarioPeloId(Guid id)
         {
             throw new NotImplementedException();
         }
 
-        public void Remove(int id)
+        public void Remove(Guid id)
         {
             var usuario = GetById(id);
             _contexto.Usuarios.Remove(usuario);

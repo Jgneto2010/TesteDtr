@@ -7,6 +7,6 @@ namespace Dominio.Contratos.Interfaces
 {
     public interface IUsuarioRepositorio : IRepositorio<Usuario>
     {
-        Produto ObterUsuarioPeloId(int Id);
+        Produto ObterUsuarioPeloId(Guid Id);
     }
 }
