@@ -1,10 +1,12 @@
 ﻿using Dominio.Contratos.Interfaces;
 using Dominio.Modelo.Entidades;
 using Infra.Contextos;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace Infra.Repositorio
 {
@@ -51,5 +53,6 @@ namespace Infra.Repositorio
         {
             _contexto.Produtos.Update(obj);
         }
+        
     }
 }

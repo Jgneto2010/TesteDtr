@@ -16,17 +16,17 @@ namespace Dominio.Validacoes
 
         public void ValidValidadeProduto()
         {
-            RuleFor(x => x.ValidadeProduto).NotEmpty().WithMessage("Insira Um Nome de um produto");
+            RuleFor(x => x.Validade).NotEmpty().WithMessage("Insira Um Nome de um produto");
         }
 
         public void ValidCodigoProduto()
         {
-            RuleFor(x => x.CodigoProduto).NotEmpty().WithMessage("Insira Um Nome de um produto");
+            RuleFor(x => x.Codigo).NotEmpty().WithMessage("Insira Um Nome de um produto");
         }
 
         public void ValidPrecoProduto()
         {
-            RuleFor(x => x.PrecoProduto).NotEmpty().WithMessage("Insira Um Nome de um produto");            
+            RuleFor(x => x.Preco).NotEmpty().WithMessage("Insira Um Nome de um produto");            
         }
     }
 }

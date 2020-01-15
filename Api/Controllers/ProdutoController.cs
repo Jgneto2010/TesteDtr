@@ -23,5 +23,7 @@ namespace Api.Controllers
              repositorio.SaveChanges();
             return Created($"api/produto/{produto.NomeProduto}", new { produto.Id, produto.NomeProduto, produto.Preco, produto.Validade });
         }
+
+        
     }
 }
