@@ -12,7 +12,7 @@ namespace Dominio.Modelo.Entidades
         public string EmailUsuario { get;  set; }
         public string PasswordUsuario { get;  set; }
         public string ConfirmaPasswordUsuario { get;  set; }
-        public ICollection<Produto> ColecaoProdutos { get; set; }
+        public List<Produto> ColecaoProdutos { get; set; }
         public Produto produto { get; set; }
     }
 }

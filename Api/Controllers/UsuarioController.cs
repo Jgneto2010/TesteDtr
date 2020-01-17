@@ -17,16 +17,14 @@ namespace Api.Controllers
 
         [HttpPost]
         [Route("addUsuario")]
-        public async Task<IActionResult> Post([FromServices]IUsuarioRepositorio repositorio, [FromBody]AddUsuarioModel addUsuarioModel)
+        public async Task<IActionResult> AdicionandoUsuario([FromServices]IUsuarioRepositorio repositorio, [FromBody]AddUsuarioModel addUsuarioModel)
         {
             var usuario = new Usuario();
-            
-
+           
             usuario.NomeUsuario = addUsuarioModel.NomeUsuario;
             usuario.EmailUsuario = addUsuarioModel.EmailUsuario;
             usuario.PasswordUsuario = addUsuarioModel.PasswordUsuario;
             usuario.ConfirmaPasswordUsuario = addUsuarioModel.ConfirmaPasswordUsuario;
-
 
             repositorio.Add(usuario);
             repositorio.SaveChanges();

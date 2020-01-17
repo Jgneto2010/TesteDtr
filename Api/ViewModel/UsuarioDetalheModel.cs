@@ -11,7 +11,7 @@ namespace Api.ViewModel
         public string EmailUsuario { get; set; }
         public string PasswordUsuario { get; set; }
         public string ConfirmaPasswordUsuario { get; set; }
-        public ICollection<ProdutoDetalheModel> ColecaoProdutos { get; set; }
+        public List<ProdutoDetalheModel> ColecaoProdutos { get; set; }
         
     }
 }
