@@ -8,16 +8,18 @@ namespace Api.ViewModel
 {
     public class ProdutoModel
     {
-        public ProdutoModel(string nome, int codigo, DateTime validade, decimal preco )
+        public ProdutoModel(string nome, int codigo, DateTime fabricacao, decimal preco, DateTime validade )
         {
             NomeProduto = nome;
             Codigo = codigo;
-            Validade = validade;
+            Fabricacao = fabricacao;
             Preco = preco;
+            Validade = validade;
         }
 
         public string NomeProduto { get; set; }
         public int Codigo { get; set; }
+        public DateTime Fabricacao { get; set; }
         public DateTime Validade { get; set; }
         public decimal Preco { get; set; }
         public Usuario Usuario { get; set; }
