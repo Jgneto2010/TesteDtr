@@ -26,15 +26,11 @@ namespace Api.Controllers
             usuario.EmailUsuario = addUsuarioModel.EmailUsuario;
             usuario.PasswordUsuario = addUsuarioModel.PasswordUsuario;
             usuario.ConfirmaPasswordUsuario = addUsuarioModel.ConfirmaPasswordUsuario;
-            usuario.ColecaoProdutos = addUsuarioModel.;
 
 
-
-
-
-            repositorio.Add(produto);
+            repositorio.Add(usuario);
             repositorio.SaveChanges();
-            return Created($"api/produto/{produto.NomeProduto}", new { produto.Id, produto.NomeProduto, produto.Preco, produto.Validade });
+            return Created($"api/produto/{usuario.NomeUsuario}", new { usuario.Id, usuario.NomeUsuario, usuario.EmailUsuario });
         }
 
 
