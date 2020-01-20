@@ -48,8 +48,7 @@ namespace Api
                 });
 
             });
-            services.AddDbContext<Contexto>(option =>
-            option.UseSqlServer(Configuration.GetConnectionString("StringConnect")));
+           
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

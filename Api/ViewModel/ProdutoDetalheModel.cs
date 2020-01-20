@@ -8,7 +8,7 @@ namespace Api.ViewModel
     public class ProdutoDetalheModel
     {
         public string NomeProduto { get; set; }
-        public decimal CodigoProduto { get; set; }
+        public int CodigoProduto { get; set; }
         public DateTime Fabricacao { get; set; }
         public DateTime Validade { get; set; }
         public decimal PrecoProduto { get; set; }
