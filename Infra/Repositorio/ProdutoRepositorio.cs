@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace Infra.Repositorio
 {
-    public class ProdutoRepositorio : IProdutoRepositorio
+    public class ProdutoRepositorio : RepositorioBase<Produto>, IRepositorio<Produto>, IProdutoRepositorio
     {
         private readonly Contexto _contexto;
-        public ProdutoRepositorio(Contexto contexto)
+        public ProdutoRepositorio(Contexto contexto) : base(contexto)
         {
             _contexto = contexto;
         }

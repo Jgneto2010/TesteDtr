@@ -8,10 +8,10 @@ using System.Text;
 
 namespace Infra.Repositorio
 {
-    public class UsuarioRepositorio: IUsuarioRepositorio
+    public class UsuarioRepositorio: RepositorioBase<Usuario>, IRepositorio<Usuario>, IUsuarioRepositorio
     {
         private readonly Contexto _contexto;
-        public UsuarioRepositorio(Contexto contexto)
+        public UsuarioRepositorio(Contexto contexto) :  base(contexto)
         {
             _contexto = contexto;
         }
