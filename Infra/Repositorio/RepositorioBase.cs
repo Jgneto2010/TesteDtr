@@ -20,10 +20,7 @@ namespace Infra.Repositorio
             _contexto = contexto;
             DbSet = _contexto.Set<T>();
         }
-        public ValueTask<Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry<T>> Add(T obj)
-        {
-            return  DbSet.AddAsync(obj);
-        }
+        
         public Task<List<T>> GetAll()
         {
             return DbSet.ToListAsync();

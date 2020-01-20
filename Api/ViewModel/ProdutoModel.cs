@@ -16,7 +16,6 @@ namespace Api.ViewModel
             Preco = preco;
             Validade = validade;
         }
-
         public string NomeProduto { get; set; }
         public int Codigo { get; set; }
         public DateTime Fabricacao { get; set; }
