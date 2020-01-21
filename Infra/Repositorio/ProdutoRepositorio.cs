@@ -34,6 +34,11 @@ namespace Infra.Repositorio
             return _contexto.Produtos.Where(c => c.Id == id).First();
         }
 
+        public Task<Produto> GetByName(string nomeProduto)
+        {
+            throw new NotImplementedException();
+        }
+
         public Produto ObterProdutoPeloNome(string nome)
         {
             return _contexto.Produtos.Where(c => c.NomeProduto == nome).First();

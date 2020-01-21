@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Api.ViewModel
 {
-    public class AddUsuarioModel
+    public class AddUsuarioComProdutoModel
     {
         public string NomeUsuario { get; set; }
         public string EmailUsuario { get; set; }

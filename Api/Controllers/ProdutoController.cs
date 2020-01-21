@@ -16,15 +16,16 @@ namespace Api.Controllers
     {
         [HttpPost]
         [Route("addProduto")]
-        public async Task<IActionResult> AdicionandoProdutoEstoque([FromServices]IProdutoRepositorio repositorio, [FromBody]AddProdutoModel addProdutoModel)
+        public async Task<IActionResult> Post([FromServices]IProdutoRepositorio repositorio, [FromBody]AddProdutoModel produtoModel)
         {
-            var produto = new Produto(addProdutoModel.NomeProduto, addProdutoModel.Codigo, addProdutoModel.Fabricacao, addProdutoModel.Preco, addProdutoModel.Validade);
-            produto.Validade = DateTime.Now;
-             repositorio.Add(produto);
-             repositorio.SaveChanges();
-            return Created($"api/produto/{produto.NomeProduto}", new { produto.Id, produto.NomeProduto, produto.Preco, produto.Validade });
+            var produto = new Produto(produtoModel.NomeProduto, produtoModel.Codigo, produtoModel.Fabricacao, produtoModel.Preco, produtoModel.Validade);
+            repositorio.Add(produto);
+            repositorio.SaveChanges();
+            return Created($"api/produto/{produto.NomeProduto}", new { produto.Id });
         }
 
         
+
+
     }
 }

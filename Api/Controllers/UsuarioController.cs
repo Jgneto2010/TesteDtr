@@ -16,18 +16,18 @@ namespace Api.Controllers
     {
 
         [HttpPost]
-        [Route("addUsuario")]
-        public async Task<IActionResult> AdicionandoUsuarioComListaDeProdutos([FromServices]IUsuarioRepositorio repositorio, [FromBody]AddUsuarioModel addUsuarioModel)
+        [Route("addUsuario/Produto")]
+        public async Task<IActionResult> AdicionandoUsuarioComListaDeProdutos([FromServices]IUsuarioRepositorio repositorio, [FromBody]AddUsuarioComProdutoModel addUsuarioComProdutoModel)
         {
             var usuario = new Usuario();
            
-            usuario.NomeUsuario = addUsuarioModel.NomeUsuario;
-            usuario.EmailUsuario = addUsuarioModel.EmailUsuario;
-            usuario.PasswordUsuario = addUsuarioModel.PasswordUsuario;
-            usuario.ConfirmaPasswordUsuario = addUsuarioModel.ConfirmaPasswordUsuario;
+            usuario.NomeUsuario = addUsuarioComProdutoModel.NomeUsuario;
+            usuario.EmailUsuario = addUsuarioComProdutoModel.EmailUsuario;
+            usuario.PasswordUsuario = addUsuarioComProdutoModel.PasswordUsuario;
+            usuario.ConfirmaPasswordUsuario = addUsuarioComProdutoModel.ConfirmaPasswordUsuario;
             usuario.ColecaoProdutos = new List<Produto>();
 
-            foreach (var item in addUsuarioModel.ColecaoProdutos)
+            foreach (var item in addUsuarioComProdutoModel.ColecaoProdutos)
             {
                 var teste = new Produto(item.NomeProduto, item.CodigoProduto, item.Fabricacao, item.PrecoProduto, item.Validade);
                 usuario.ColecaoProdutos.Add(teste);
@@ -37,7 +37,23 @@ namespace Api.Controllers
             repositorio.SaveChanges();
             return Created($"api/produto/{usuario.NomeUsuario}", new { usuario.Id, usuario.NomeUsuario, usuario.EmailUsuario });
         }
-        
+
+        [HttpPost]
+        [Route("cadastrarUsuario")]
+        public async Task<IActionResult> CadastrarUsuario([FromServices]IUsuarioRepositorio repositorio, [FromBody]AddUsuario addUsuario)
+        {
+            var usuario = new Usuario();
+
+            usuario.NomeUsuario = addUsuario.NomeUsuario;
+            usuario.EmailUsuario = addUsuario.EmailUsuario;
+            usuario.PasswordUsuario = addUsuario.PasswordUsuario;
+            usuario.ConfirmaPasswordUsuario = addUsuario.ConfirmaPasswordUsuario;
+
+            repositorio.Add(usuario);
+            repositorio.SaveChanges();
+            return Ok(usuario);
+        }
+
 
 
     }
