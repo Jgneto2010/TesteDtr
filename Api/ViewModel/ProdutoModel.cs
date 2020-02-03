@@ -8,14 +8,14 @@ namespace Api.ViewModel
 {
     public class ProdutoModel
     {
-        public ProdutoModel(string nome, int codigo, DateTime fabricacao, decimal preco, DateTime validade )
-        {
-            NomeProduto = nome;
-            Codigo = codigo;
-            Fabricacao = fabricacao;
-            Preco = preco;
-            Validade = validade;
-        }
+        //public ProdutoModel(string nome, int codigo, DateTime fabricacao, decimal preco, DateTime validade )
+        //{
+        //    NomeProduto = nome;
+        //    Codigo = codigo;
+        //    Fabricacao = fabricacao;
+        //    Preco = preco;
+        //    Validade = validade;
+        //}
         public Guid Id { get; set; }
         public string NomeProduto { get; set; }
         public int Codigo { get; set; }

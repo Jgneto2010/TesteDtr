@@ -16,12 +16,33 @@ namespace Api.Controllers
     {
         [HttpPost]
         [Route("addProduto")]
-        public async Task<IActionResult> Post([FromServices]IProdutoRepositorio repositorio, [FromBody]AddProdutoModel produtoModel)
+        public async Task<IActionResult> PostCadastrarProduto([FromServices]IProdutoRepositorio repositorio, [FromBody]AddProdutoModel produtoModel)
         {
-            var produto = new Produto(produtoModel.NomeProduto, produtoModel.Codigo, produtoModel.Fabricacao, produtoModel.Preco, produtoModel.Validade);
+            var produto = new Produto(produtoModel.NomeProduto, produtoModel.Codigo, produtoModel.Fabricacao = DateTime.Now, produtoModel.Preco, produtoModel.Validade);
             repositorio.Add(produto);
             repositorio.SaveChanges();
             return Created($"api/produto/{produto.NomeProduto}", new { produto.Id });
+        }
+
+        [HttpGet]
+        [Route("getProduto")]
+        public async Task<IActionResult> GetProdutoNome([FromServices] IProdutoRepositorio repositorio, [FromBody] string nomeProduto)
+        {
+            var result = await repositorio.GetByName(nomeProduto);
+
+            if (result == default)
+                return NotFound();
+
+            return Ok(new ProdutoModel
+            {
+                NomeProduto = result.NomeProduto,
+                Codigo = result.Codigo,
+                Fabricacao = result.Fabricacao,
+                Preco = result.Preco,
+                Validade = result.Validade
+
+            }) ;
+
         }
 
         
