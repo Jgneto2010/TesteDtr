@@ -6,6 +6,7 @@ namespace Dominio.Modelo.Entidades
 {
     public class Produto : Entity
     {
+        public Produto(){}
         public Produto(string nome, int codigo, DateTime fabricacao, decimal preco, DateTime validade)
         {
             NomeProduto = nome;

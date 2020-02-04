@@ -12,6 +12,6 @@ namespace Api.ViewModel
         public DateTime Fabricacao { get; set; }
         public DateTime Validade { get; set; }
         public decimal PrecoProduto { get; set; }
-        public UsuarioDetalheModel Usuario { get; set; }
+       
     }
 }

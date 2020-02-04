@@ -20,7 +20,7 @@ namespace Infra.Repositorio
             _contexto = contexto;
             DbSet = _contexto.Set<T>();
         }
-        
+
         public Task<List<T>> GetAll()
         {
             return DbSet.ToListAsync();

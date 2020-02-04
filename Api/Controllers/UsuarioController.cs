@@ -35,7 +35,7 @@ namespace Api.Controllers
 
             repositorio.Add(usuario);
             repositorio.SaveChanges();
-            return Created($"api/produto/{usuario.NomeUsuario}", new { usuario.Id, usuario.NomeUsuario, usuario.EmailUsuario });
+            return Created($"api/produto/{usuario.NomeUsuario}", new { usuario.Id, usuario.NomeUsuario, usuario.ColecaoProdutos });
         }
 
         [HttpPost]
