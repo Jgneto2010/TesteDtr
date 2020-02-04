@@ -14,7 +14,6 @@ namespace Api.Controllers
     [ApiController]
     public class UsuarioController : ControllerBase
     {
-
         [HttpPost]
         [Route("addUsuario/Produto")]
         public async Task<IActionResult> AdicionandoUsuarioComListaDeProdutos([FromServices]IUsuarioRepositorio repositorio, [FromBody]AddUsuarioComProdutoModel addUsuarioComProdutoModel)
@@ -37,7 +36,6 @@ namespace Api.Controllers
             repositorio.SaveChanges();
             return Created($"api/produto/{usuario.NomeUsuario}", new { usuario.Id, usuario.NomeUsuario, usuario.ColecaoProdutos });
         }
-
         [HttpPost]
         [Route("cadastrarUsuario")]
         public async Task<IActionResult> CadastrarUsuario([FromServices]IUsuarioRepositorio repositorio, [FromBody]AddUsuario addUsuario)
@@ -53,8 +51,6 @@ namespace Api.Controllers
             repositorio.SaveChanges();
             return Ok(usuario);
         }
-
-
 
     }
 }

@@ -19,7 +19,6 @@ namespace Infra.Maps
                 builder.Property(e => e.Id)
                     .IsRequired();
 
-
                 builder.Property(e => e.NomeUsuario)
                        .HasColumnType("varchar(40)")
                        .IsRequired();
@@ -37,7 +36,6 @@ namespace Infra.Maps
                 //.WithMany(e => e.Produto)
                 //.HasForeignKey(e => e.IdUsuario)
                 //.IsRequired();
-
 
             }
         }

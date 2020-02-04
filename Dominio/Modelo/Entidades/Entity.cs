@@ -10,7 +10,6 @@ namespace Dominio.Modelo.Entidades
         {
             Id = Guid.NewGuid();
         }
-
         public Guid Id { get; set; }
     }
 }

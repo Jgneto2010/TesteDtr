@@ -20,8 +20,6 @@ namespace Api.Controllers
             return new string[] { "Seja Bem Vindo" };
         }
 
-        
-
         // PUT api/values/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)

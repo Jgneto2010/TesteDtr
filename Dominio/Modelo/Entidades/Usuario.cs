@@ -7,7 +7,6 @@ namespace Dominio.Modelo.Entidades
     public class Usuario : Entity
     {
         public Usuario() { }
-
         public string NomeUsuario { get;  set; }
         public string EmailUsuario { get;  set; }
         public string PasswordUsuario { get;  set; }

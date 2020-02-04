@@ -32,7 +32,6 @@ namespace Infra.Maps
                    .HasColumnType("DateTime")
                    .IsRequired();
             
-            
         }
     }
 }

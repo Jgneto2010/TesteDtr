@@ -26,7 +26,6 @@ namespace Infra.Repositorio
         {
             return _contexto.Produtos.ToList();
         }
-       
 
         //testes
         public Produto GetById(Guid id)

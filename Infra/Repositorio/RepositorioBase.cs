@@ -20,7 +20,6 @@ namespace Infra.Repositorio
             _contexto = contexto;
             DbSet = _contexto.Set<T>();
         }
-
         public Task<List<T>> GetAll()
         {
             return DbSet.ToListAsync();
@@ -47,7 +46,6 @@ namespace Infra.Repositorio
         {
             throw new NotImplementedException();
         }
-
         T IRepositorio<T>.GetById(Guid id)
         {
             throw new NotImplementedException();
@@ -67,7 +65,6 @@ namespace Infra.Repositorio
         {
             throw new NotImplementedException();
         }
-
         int IRepositorio<T>.SaveChanges()
         {
             throw new NotImplementedException();

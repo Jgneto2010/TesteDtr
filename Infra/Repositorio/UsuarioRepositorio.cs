@@ -30,7 +30,6 @@ namespace Infra.Repositorio
             return _contexto.Usuarios.Where(c => c.Id == id).First();
         }
 
-
         public Produto ObterUsuarioPeloNome(string nome)
         {
             return _contexto.Produtos.Where(c => c.NomeProduto == nome).First();
