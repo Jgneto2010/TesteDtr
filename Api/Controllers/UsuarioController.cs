@@ -16,16 +16,15 @@ namespace Api.Controllers
     public class UsuarioController : ControllerBase
     {
         [HttpPost]
-        [Route("addUsuario/Produto")]
-        public async Task<IActionResult> AdicionandoUsuarioComListaDeProdutos([FromServices]IUsuarioRepositorio repositorio, [FromBody]AddUsuarioComProdutoModel addUsuarioComProdutoModel)
+        [Route("addUsuario/ProdutosDoUsuario")]
+        public async Task<IActionResult> UsuarioComSeusProdutos([FromServices]IUsuarioRepositorio repositorio, [FromBody]AddUsuarioComProdutoModel addUsuarioComProdutoModel)
         {
             var usuario = new Usuario();
             var validacao = new UsuarioValidator().Validate(usuario);
+            
 
             usuario.NomeUsuario = addUsuarioComProdutoModel.NomeUsuario;
-            usuario.EmailUsuario = addUsuarioComProdutoModel.EmailUsuario;
-            usuario.PasswordUsuario = addUsuarioComProdutoModel.PasswordUsuario;
-            usuario.ConfirmaPasswordUsuario = addUsuarioComProdutoModel.ConfirmaPasswordUsuario;
+            usuario.FormaPagamento = addUsuarioComProdutoModel.FormaPagamento;
             usuario.ColecaoProdutos = new List<Produto>();
 
             foreach (var item in addUsuarioComProdutoModel.ColecaoProdutos)
@@ -36,7 +35,7 @@ namespace Api.Controllers
 
             repositorio.Add(usuario);
             repositorio.SaveChanges();
-            return Created($"api/produto/{usuario.NomeUsuario}", new { usuario.Id, usuario.NomeUsuario, usuario.ColecaoProdutos });
+            return Created($"api/produto/{usuario.NomeUsuario}", new { usuario.Id, usuario.NomeUsuario, usuario.ColecaoProdutos, usuario.FormaPagamento });
         }
         [HttpPost]
         [Route("cadastrarUsuario")]
