@@ -24,12 +24,12 @@ namespace Api.Controllers
 
             produto.Fabricacao = DateTime.Now;
             produto.Validade = DateTime.Now.AddMonths(1);
-            TimeSpan diferenca = produto.Fabricacao.Subtract(produto.Validade);
-            double dias = diferenca.TotalDays;
+            ////TimeSpan diferenca = produto.Fabricacao.Subtract(produto.Validade);
+            //double dias = diferenca.TotalDays;
             
             repositorio.Add(produto);
             repositorio.SaveChanges();
-            return Created($"api/produto/{produto.NomeProduto}", new { produto.Id, produto.Fabricacao });
+            return Created($"api/produto/{produto.NomeProduto}", new { produto.Id, produto.Fabricacao, produto.Validade });
         }
 
         [HttpGet]
