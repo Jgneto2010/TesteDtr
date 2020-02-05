@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Api.ViewModel;
 using Dominio.Contratos.Interfaces;
 using Dominio.Modelo.Entidades;
+using Dominio.Validacoes;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,7 +19,9 @@ namespace Api.Controllers
         [Route("addProduto")]
         public async Task<IActionResult> PostCadastrarProduto([FromServices]IProdutoRepositorio repositorio, [FromBody]AddProdutoModel produtoModel)
         {
+            
             var produto = new Produto(produtoModel.NomeProduto, produtoModel.Codigo, produtoModel.Fabricacao = DateTime.Now, produtoModel.Preco, produtoModel.Validade);
+            var validacao = new ProdutoValidator().Validate(produto);
             repositorio.Add(produto);
             repositorio.SaveChanges();
             return Created($"api/produto/{produto.NomeProduto}", new { produto.Id });

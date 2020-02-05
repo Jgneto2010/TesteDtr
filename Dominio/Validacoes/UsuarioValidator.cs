@@ -23,6 +23,12 @@ namespace Dominio.Validacoes
             RuleFor(x => x.PasswordUsuario).NotEmpty().WithMessage("Insira um Password");
             RuleFor(x => x.ConfirmaPasswordUsuario).NotEmpty().WithMessage("Confirme o Password");
         }
+
+        public void ValidProdutos()
+        {
+            RuleFor(x => x.ColecaoProdutos).NotEmpty().WithMessage("Insira os Produtos");
+           
+        }
     }
  }
 

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Api.ViewModel;
 using Dominio.Contratos.Interfaces;
 using Dominio.Modelo.Entidades;
+using Dominio.Validacoes;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,7 +20,8 @@ namespace Api.Controllers
         public async Task<IActionResult> AdicionandoUsuarioComListaDeProdutos([FromServices]IUsuarioRepositorio repositorio, [FromBody]AddUsuarioComProdutoModel addUsuarioComProdutoModel)
         {
             var usuario = new Usuario();
-           
+            var validacao = new UsuarioValidator().Validate(usuario);
+
             usuario.NomeUsuario = addUsuarioComProdutoModel.NomeUsuario;
             usuario.EmailUsuario = addUsuarioComProdutoModel.EmailUsuario;
             usuario.PasswordUsuario = addUsuarioComProdutoModel.PasswordUsuario;
@@ -41,7 +43,8 @@ namespace Api.Controllers
         public async Task<IActionResult> CadastrarUsuario([FromServices]IUsuarioRepositorio repositorio, [FromBody]AddUsuario addUsuario)
         {
             var usuario = new Usuario();
-
+            var validacao = new UsuarioValidator().Validate(usuario);
+            
             usuario.NomeUsuario = addUsuario.NomeUsuario;
             usuario.EmailUsuario = addUsuario.EmailUsuario;
             usuario.PasswordUsuario = addUsuario.PasswordUsuario;
