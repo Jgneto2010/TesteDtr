@@ -16,7 +16,7 @@ namespace Api.Controllers
     public class UsuarioController : ControllerBase
     {
         [HttpPost]
-        [Route("addUsuario/ProdutosDoUsuario")]
+        [Route("ProdutosDoUsuario")]
         public async Task<IActionResult> UsuarioComSeusProdutos([FromServices]IUsuarioRepositorio repositorio, [FromBody]AddUsuarioComProdutoModel addUsuarioComProdutoModel)
         {
             var usuario = new Usuario();
@@ -24,7 +24,7 @@ namespace Api.Controllers
             
 
             usuario.NomeUsuario = addUsuarioComProdutoModel.NomeUsuario;
-            usuario.FormaPagamento = addUsuarioComProdutoModel.FormaPagamento;
+            usuario.FormaPagamento.TipoPagamento = addUsuarioComProdutoModel.FormaPagamento.TipoPagamento;
             usuario.ColecaoProdutos = new List<Produto>();
 
             foreach (var item in addUsuarioComProdutoModel.ColecaoProdutos)

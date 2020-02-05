@@ -19,7 +19,7 @@ namespace Dominio.Modelo.Entidades
         public string NomeProduto { get;  set; }
         public int Codigo { get;  set; }
         public DateTime Fabricacao { get;  set; }
-        public DateTime Validade { get; set; }
+        public DateTime Validade { get;  set; }
         public decimal Preco { get;  set; }
         public Usuario Usuario { get; set; }
     }
