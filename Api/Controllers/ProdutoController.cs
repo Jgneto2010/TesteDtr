@@ -19,12 +19,13 @@ namespace Api.Controllers
         [Route("addProduto")]
         public async Task<IActionResult> PostCadastrarProduto([FromServices]IProdutoRepositorio repositorio, [FromBody]AddProdutoModel produtoModel)
         {
-            
             var produto = new Produto(produtoModel.NomeProduto, produtoModel.Codigo, produtoModel.Fabricacao = DateTime.Now, produtoModel.Preco, produtoModel.Validade);
             var validacao = new ProdutoValidator().Validate(produto);
+
+            produto.Fabricacao = DateTime.Now;
             repositorio.Add(produto);
             repositorio.SaveChanges();
-            return Created($"api/produto/{produto.NomeProduto}", new { produto.Id });
+            return Created($"api/produto/{produto.NomeProduto}", new { produto.Id, produto.Fabricacao });
         }
 
         [HttpGet]
