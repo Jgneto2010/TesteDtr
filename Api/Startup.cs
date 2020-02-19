@@ -31,10 +31,9 @@ namespace Api
         {
             services.AddScoped<IProdutoRepositorio, ProdutoRepositorio>();
             services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
-
-            services.AddScoped<Contexto>();
+            
             services.AddDbContext<Contexto>(options =>
-              options.UseSqlServer(Configuration.GetConnectionString("StringConnect")));
+              options.UseSqlServer(Configuration.GetConnectionString("StringConnects")));
 
             //ConfigurandoDatabase InMemory
             //services.AddDbContext<Contexto>(configs => configs.UseInMemoryDatabase("newBanco"));

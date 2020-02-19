@@ -16,18 +16,20 @@ namespace Infra.Maps
                 builder.HasKey(x => x.Id);
                 builder.Property(x => x.Id)
                     .HasColumnName("ID_SERVICO");
-                builder.Property(e => e.Id)
-                    .IsRequired();
+                
 
                 builder.Property(e => e.NomeUsuario)
+                      .HasColumnName("NomeUsuario")
                        .HasColumnType("varchar(40)")
                        .IsRequired();
 
                 builder.Property(e => e.EmailUsuario)
+                       .HasColumnName("EmailUsuario")
                        .HasColumnType("string")
                        .IsRequired();
 
                 builder.Property(e => e.PasswordUsuario)
+                      .HasColumnName("PasswordUsuario")
                        .HasColumnType("string")
                        .IsRequired();
 
