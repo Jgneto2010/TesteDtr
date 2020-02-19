@@ -31,10 +31,13 @@ namespace Api
         {
             services.AddScoped<IProdutoRepositorio, ProdutoRepositorio>();
             services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
-            //services.AddScoped<Contexto>();
+
+            services.AddScoped<Contexto>();
+            services.AddDbContext<Contexto>(options =>
+              options.UseSqlServer(Configuration.GetConnectionString("StringConnect")));
 
             //ConfigurandoDatabase InMemory
-            services.AddDbContext<Contexto>(configs => configs.UseInMemoryDatabase("newBanco"));
+            //services.AddDbContext<Contexto>(configs => configs.UseInMemoryDatabase("newBanco"));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
