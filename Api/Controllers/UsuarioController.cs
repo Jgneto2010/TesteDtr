@@ -24,7 +24,6 @@ namespace Api.Controllers
             
 
             usuario.NomeUsuario = addUsuarioComProdutoModel.NomeUsuario;
-            usuario.FormaPagamento.TipoPagamento = addUsuarioComProdutoModel.FormaPagamento.TipoPagamento;
             usuario.ColecaoProdutos = new List<Produto>();
 
             foreach (var item in addUsuarioComProdutoModel.ColecaoProdutos)

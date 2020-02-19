@@ -18,13 +18,13 @@ namespace Dominio.Modelo.Entidades
             Preco = preco;
             Validade = validade;
         }
-        public Guid IdUsuario { get; set; }
         public string NomeProduto { get;  set; }
         public int Codigo { get;  set; }
         public DateTime Fabricacao { get;  set; }
         public DateTime Validade { get;  set; }
         public decimal Preco { get;  set; }
-        public Usuario Usuario { get; set; }
+        public Usuario usuario { get; set; }
+        public Guid IdUsuario { get; set; }
     }
 }
 

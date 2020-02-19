@@ -10,7 +10,6 @@ namespace Api.ViewModel
     {
         public string NomeUsuario { get; set; }
         public List<ProdutoDetalheModel> ColecaoProdutos { get; set; }
-        public FormaPagamento FormaPagamento { get; set; }
 
     }
 }

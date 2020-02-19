@@ -34,11 +34,11 @@ namespace Infra.Maps
                        .HasColumnType("string")
                        .IsRequired();
 
-                //Aqui Foi Criado um relacionamento entre o usuario e o produto
-                //builder.HasOne(e => e.Usuario)
-                //.WithMany(e => e.Produto)
-                //.HasForeignKey(e => e.IdUsuario)
-                //.IsRequired();
+               // Aqui Foi Criado um relacionamento entre o usuario e o produto
+                builder.HasMany(e => e.ColecaoProdutos)
+                .WithOne(e => e.usuario)
+                .HasForeignKey(e => e.IdUsuario)
+                .IsRequired();
 
             }
         }
