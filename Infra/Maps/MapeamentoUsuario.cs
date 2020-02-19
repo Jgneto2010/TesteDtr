@@ -14,9 +14,10 @@ namespace Infra.Maps
             public void Configure(EntityTypeBuilder<Usuario> builder)
             {
                 builder.HasKey(x => x.Id);
-                builder.Property(x => x.Id)
-                    .HasColumnName("ID_SERVICO");
-                
+
+                builder.Property(e => e.Id)
+                      .HasColumnName("ID_USUARIO");
+
 
                 builder.Property(e => e.NomeUsuario)
                       .HasColumnName("NomeUsuario")

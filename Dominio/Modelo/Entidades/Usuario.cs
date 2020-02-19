@@ -14,7 +14,6 @@ namespace Dominio.Modelo.Entidades
             Id = Guid.NewGuid();
         }
         public Usuario() { }
-        public Guid Id { get; set; }
         public string NomeUsuario { get;  set; }
         public string EmailUsuario { get;  set; }
         public string PasswordUsuario { get;  set; }

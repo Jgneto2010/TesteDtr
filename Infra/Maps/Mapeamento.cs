@@ -13,9 +13,10 @@ namespace Infra.Maps
         {
 
             builder.HasKey(x => x.Id);
+
             builder.Property(e => e.Id)
-                   .HasColumnType("Int")
-                   .IsRequired();
+                  .HasColumnName("ID_PRODUTO");
+                   
             
             builder.Property(e => e.NomeProduto)
                    .HasColumnName("Nome_Produto")
