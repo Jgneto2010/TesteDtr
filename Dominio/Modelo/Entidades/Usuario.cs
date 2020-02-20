@@ -1,5 +1,4 @@
-﻿using Dominio.Modelo.Entidades.FormaPagamentos;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -19,7 +18,7 @@ namespace Dominio.Modelo.Entidades
         public string PasswordUsuario { get;  set; }
         public string ConfirmaPasswordUsuario { get;  set; }
         public List<Produto> ColecaoProdutos { get; set; }
-        public FormaPagamento FormaPagamento { get; set; }
+       
 
     }
 }

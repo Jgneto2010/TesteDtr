@@ -3,22 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Infra.Migrations
 {
-    public partial class testes : Migration
+    public partial class projetovale : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "FormaPagamento",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(nullable: false),
-                    TipoPagamento = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_FormaPagamento", x => x.Id);
-                });
-
             migrationBuilder.CreateTable(
                 name: "Usuarios",
                 columns: table => new
@@ -27,18 +15,11 @@ namespace Infra.Migrations
                     NomeUsuario = table.Column<string>(nullable: true),
                     EmailUsuario = table.Column<string>(nullable: true),
                     PasswordUsuario = table.Column<string>(nullable: true),
-                    ConfirmaPasswordUsuario = table.Column<string>(nullable: true),
-                    FormaPagamentoId = table.Column<Guid>(nullable: true)
+                    ConfirmaPasswordUsuario = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Usuarios", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Usuarios_FormaPagamento_FormaPagamentoId",
-                        column: x => x.FormaPagamentoId,
-                        principalTable: "FormaPagamento",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -46,34 +27,28 @@ namespace Infra.Migrations
                 columns: table => new
                 {
                     ID_PRODUTO = table.Column<Guid>(nullable: false),
-                    IdUsuario = table.Column<Guid>(nullable: false),
                     Nome_Produto = table.Column<string>(type: "varchar(40)", nullable: false),
                     Codigo = table.Column<decimal>(type: "decimal", nullable: false),
                     Fabricacao = table.Column<DateTime>(nullable: false),
                     Validade = table.Column<DateTime>(type: "DateTime", nullable: false),
                     Preco = table.Column<decimal>(type: "decimal", nullable: false),
-                    UsuarioId = table.Column<Guid>(nullable: true)
+                    IdUsuario = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Produtos", x => x.ID_PRODUTO);
                     table.ForeignKey(
-                        name: "FK_Produtos_Usuarios_UsuarioId",
-                        column: x => x.UsuarioId,
+                        name: "FK_Produtos_Usuarios_IdUsuario",
+                        column: x => x.IdUsuario,
                         principalTable: "Usuarios",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Produtos_UsuarioId",
+                name: "IX_Produtos_IdUsuario",
                 table: "Produtos",
-                column: "UsuarioId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Usuarios_FormaPagamentoId",
-                table: "Usuarios",
-                column: "FormaPagamentoId");
+                column: "IdUsuario");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -83,9 +58,6 @@ namespace Infra.Migrations
 
             migrationBuilder.DropTable(
                 name: "Usuarios");
-
-            migrationBuilder.DropTable(
-                name: "FormaPagamento");
         }
     }
 }

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infra.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20200219142513_testes")]
-    partial class testes
+    [Migration("20200220120659_projetovale")]
+    partial class projetovale
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,18 +20,6 @@ namespace Infra.Migrations
                 .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("Dominio.Modelo.Entidades.FormaPagamentos.FormaPagamento", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("TipoPagamento");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("FormaPagamento");
-                });
 
             modelBuilder.Entity("Dominio.Modelo.Entidades.Produto", b =>
                 {
@@ -56,15 +44,13 @@ namespace Infra.Migrations
                         .HasColumnName("Preco")
                         .HasColumnType("decimal");
 
-                    b.Property<Guid?>("UsuarioId");
-
                     b.Property<DateTime>("Validade")
                         .HasColumnName("Validade")
                         .HasColumnType("DateTime");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UsuarioId");
+                    b.HasIndex("IdUsuario");
 
                     b.ToTable("Produtos");
                 });
@@ -78,31 +64,21 @@ namespace Infra.Migrations
 
                     b.Property<string>("EmailUsuario");
 
-                    b.Property<Guid?>("FormaPagamentoId");
-
                     b.Property<string>("NomeUsuario");
 
                     b.Property<string>("PasswordUsuario");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("FormaPagamentoId");
-
                     b.ToTable("Usuarios");
                 });
 
             modelBuilder.Entity("Dominio.Modelo.Entidades.Produto", b =>
                 {
-                    b.HasOne("Dominio.Modelo.Entidades.Usuario", "Usuario")
+                    b.HasOne("Dominio.Modelo.Entidades.Usuario", "usuario")
                         .WithMany("ColecaoProdutos")
-                        .HasForeignKey("UsuarioId");
-                });
-
-            modelBuilder.Entity("Dominio.Modelo.Entidades.Usuario", b =>
-                {
-                    b.HasOne("Dominio.Modelo.Entidades.FormaPagamentos.FormaPagamento", "FormaPagamento")
-                        .WithMany()
-                        .HasForeignKey("FormaPagamentoId");
+                        .HasForeignKey("IdUsuario")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }
