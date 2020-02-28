@@ -7,7 +7,6 @@ namespace Api.ViewModel
 {
     public class UsuarioDetalheModel
     {
-        public Guid IdUsuario { get; set; }
         public string NomeUsuario { get; set; }
         public string EmailUsuario { get; set; }
         public string PasswordUsuario { get; set; }

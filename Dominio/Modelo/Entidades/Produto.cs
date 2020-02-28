@@ -6,25 +6,24 @@ namespace Dominio.Modelo.Entidades
 {
     public class Produto : Entity
     {
-        public Produto()
+        public Produto(string nomeproduto, int codigoProduto, decimal precoProduto, DateTime fabricacaoProduto, DateTime validade)
         {
-
-        }
-        public Produto(string nome, int codigo, DateTime fabricacao, decimal preco, DateTime validade)
-        {
-            NomeProduto = nome;
-            Codigo = codigo;
-            Fabricacao = fabricacao;
-            Preco = preco;
+            NomeProduto = nomeproduto;
+            Codigo = codigoProduto;
+            Preco = precoProduto;
+            Fabricacao = fabricacaoProduto;
             Validade = validade;
+            Id = Guid.NewGuid();
         }
+        public Produto(){ }
         public string NomeProduto { get;  set; }
         public int Codigo { get;  set; }
         public DateTime Fabricacao { get;  set; }
         public DateTime Validade { get;  set; }
         public decimal Preco { get;  set; }
+        public Guid? IdUsuario { get; set; }
         public Usuario usuario { get; set; }
-        public Guid IdUsuario { get; set; }
+        
     }
 }
 

@@ -37,7 +37,7 @@ namespace Infra.Maps
                    .HasColumnName("Validade")
                    .HasColumnType("DateTime")
                    .IsRequired();
-            //Estudar
+            
             builder.HasOne(e => e.usuario)
                 .WithMany(e => e.ColecaoProdutos)
                 .HasForeignKey(e => e.IdUsuario)

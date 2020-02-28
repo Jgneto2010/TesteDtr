@@ -16,42 +16,39 @@ namespace Api.Controllers
     public class ProdutoController : ControllerBase
     {
         [HttpPost]
-        [Route("addProduto")]
-        public async Task<IActionResult> PostCadastrarProduto([FromServices]IProdutoRepositorio repositorio, [FromBody]AddProdutoModel produtoModel)
+        [Route("cadastrarProdutos")]
+        public async Task<IActionResult> CadastrarProduto([FromServices]IProdutoRepositorio repositorio, [FromBody]AddProduto produtoModel)
         {
-            var produto = new Produto(produtoModel.NomeProduto, produtoModel.Codigo, produtoModel.Fabricacao = DateTime.Now, produtoModel.Preco, produtoModel.Validade);
-            var validacao = new ProdutoValidator().Validate(produto);
+            var prod = new Produto
+            { NomeProduto = produtoModel.NomeProduto,
+                Codigo = produtoModel.Codigo,
+                Preco = produtoModel.Preco,
+                Fabricacao = produtoModel.Fabricacao = DateTime.Now,
+                Validade = produtoModel.Validade = DateTime.Now.AddMonths(3)
+            }; 
 
-            produto.Fabricacao = DateTime.Now;
-            produto.Validade = DateTime.Now.AddMonths(1);
-            ////TimeSpan diferenca = produto.Fabricacao.Subtract(produto.Validade);
-            //double dias = diferenca.TotalDays;
-            
-            repositorio.Add(produto);
+            repositorio.Add(prod);
             repositorio.SaveChanges();
-            return Created($"api/produto/{produto.NomeProduto}", new { produto.Id, produto.Fabricacao, produto.Validade });
+            return Ok(prod);
         }
 
-        [HttpGet]
-        [Route("getProduto")]
-        public async Task<IActionResult> GetProdutoNome([FromServices] IProdutoRepositorio repositorio, [FromBody] string nomeProduto)
-        {
-            var result = await repositorio.GetByName(nomeProduto);
+        //[HttpPost]
+        //[Route("cadastrarProduto")]
+        //public async Task<IActionResult> CadastraProduto([FromServices]IProdutoRepositorio repositorio, [FromBody]AddProduto addProdutoModel)
+        //{
+        //    var produto = new Produto();
 
-            if (result == default)
-                return NotFound();
+        //    produto.NomeProduto = addProdutoModel.NomeProduto;
+        //    produto.Preco = addProdutoModel.Preco;
+        //    produto.Codigo = addProdutoModel.Codigo;
+        //    produto.Fabricacao = DateTime.Now;
+        //    produto.Validade = DateTime.Now.AddMonths(1);
 
-            return Ok(new ProdutoModel
-            {
-                NomeProduto = result.NomeProduto,
-                Codigo = result.Codigo,
-                Fabricacao = result.Fabricacao,
-                Preco = result.Preco,
-                Validade = result.Validade
 
-            }) ;
-
-        }
+        //    repositorio.Add(produto);
+        //    repositorio.SaveChanges();
+        //    return Ok(produto);
+        //}
 
     }
 }

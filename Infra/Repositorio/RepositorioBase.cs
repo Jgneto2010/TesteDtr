@@ -60,6 +60,10 @@ namespace Infra.Repositorio
         {
             throw new NotImplementedException();
         }
+        public void UpDate(Produto obj)
+        {
+            throw new NotImplementedException();
+        }
 
         void IRepositorio<T>.Remove(Guid id)
         {

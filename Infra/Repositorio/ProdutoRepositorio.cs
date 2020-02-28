@@ -27,15 +27,9 @@ namespace Infra.Repositorio
             return _contexto.Produtos.ToList();
         }
 
-        //testes
         public Produto GetById(Guid id)
         {
             return _contexto.Produtos.Where(c => c.Id == id).First();
-        }
-
-        public Task<Produto> GetByName(string nomeProduto)
-        {
-            throw new NotImplementedException();
         }
 
         public Produto ObterProdutoPeloNome(string nome)
@@ -43,12 +37,12 @@ namespace Infra.Repositorio
             return _contexto.Produtos.Where(c => c.NomeProduto == nome).First();
         }
 
-        public void Remove(Guid id)
+        public Produto ObterPeloId(Guid id)
         {
-            var produto = GetById(id);
-            _contexto.Produtos.Remove(produto);
+            throw new NotImplementedException();
         }
 
+       
         public int SaveChanges()
         {
             return _contexto.SaveChanges();
@@ -58,6 +52,10 @@ namespace Infra.Repositorio
         {
             _contexto.Produtos.Update(obj);
         }
-        
+
+        public Task<Produto> GetByName(string nomeAplicacao)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -5,13 +5,13 @@ using System.Threading.Tasks;
 
 namespace Api.ViewModel
 {
-    public class AddProdutoModel
+    public class AddProduto
     {
         public string NomeProduto { get; set; }
         public int Codigo { get; set; }
         public DateTime Fabricacao { get; set; }
-        public DateTime Validade { get; set; }
         public decimal Preco { get; set; }
-        
+        public DateTime Validade { get; set; }
+
     }
 }

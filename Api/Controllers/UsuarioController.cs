@@ -17,18 +17,18 @@ namespace Api.Controllers
     {
         [HttpPost]
         [Route("ProdutosDoUsuario")]
-        public async Task<IActionResult> UsuarioComSeusProdutos([FromServices]IUsuarioRepositorio repositorio, [FromBody]AddUsuarioComProdutoModel addUsuarioComProdutoModel)
+        public async Task<IActionResult> UsuarioComSeusProdutos([FromServices]IUsuarioRepositorio repositorio, [FromBody]AddUsuarioComProduto addUsuarioComProduto)
         {
             var usuario = new Usuario();
             var validacao = new UsuarioValidator().Validate(usuario);
             
 
-            usuario.NomeUsuario = addUsuarioComProdutoModel.NomeUsuario;
+            usuario.NomeUsuario = addUsuarioComProduto.NomeUsuario;
             usuario.ColecaoProdutos = new List<Produto>();
 
-            foreach (var item in addUsuarioComProdutoModel.ColecaoProdutos)
+            foreach (var item in addUsuarioComProduto.ColecaoProdutos)
             {
-                var teste = new Produto(item.NomeProduto, item.CodigoProduto, item.Fabricacao, item.PrecoProduto, item.Validade);
+                var teste = new Produto(item.NomeProduto, item.CodigoProduto, item.PrecoProduto, item.Fabricacao, item.Validade);
                 usuario.ColecaoProdutos.Add(teste);
             }
 

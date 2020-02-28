@@ -20,5 +20,6 @@ namespace Dominio.Modelo.Entidades
         public List<Produto> ColecaoProdutos { get; set; }
        
 
+
     }
 }
