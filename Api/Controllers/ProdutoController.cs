@@ -17,7 +17,7 @@ namespace Api.Controllers
     {
         [HttpPost]
         [Route("cadastrarProdutos")]
-        public async Task<IActionResult> CadastrarProduto([FromServices]IProdutoRepositorio repositorio, [FromBody]AddProduto produtoModel)
+        public IActionResult CadastrarProduto([FromServices]IProdutoRepositorio repositorio, [FromBody]AddProduto produtoModel)
         {
             var prod = new Produto
             { NomeProduto = produtoModel.NomeProduto,
@@ -29,7 +29,7 @@ namespace Api.Controllers
 
             repositorio.Add(prod);
             repositorio.SaveChanges();
-            return Created($"api/produto/{prod.NomeProduto}", new { prod.Id, prod.usuario, prod.Fabricacao, prod.Validade });
+            return Created($"api/produto/{prod.NomeProduto}", new { prod.NomeProduto, prod.Id, prod.usuario, prod.Fabricacao, prod.Validade });
         }
         
 

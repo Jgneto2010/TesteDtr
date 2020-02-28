@@ -17,7 +17,7 @@ namespace Api.Controllers
     {
         [HttpPost]
         [Route("ProdutosDoUsuario")]
-        public async Task<IActionResult> UsuarioComSeusProdutos([FromServices]IUsuarioRepositorio repositorio, [FromBody]AddUsuarioComProduto addUsuarioComProduto)
+        public IActionResult UsuarioComSeusProdutos([FromServices]IUsuarioRepositorio repositorio, [FromBody]AddUsuarioComProduto addUsuarioComProduto)
         {
             var usuario = new Usuario();
             var validacao = new UsuarioValidator().Validate(usuario);
@@ -38,7 +38,7 @@ namespace Api.Controllers
         }
         [HttpPost]
         [Route("cadastrarUsuario")]
-        public async Task<IActionResult> CadastrarUsuario([FromServices]IUsuarioRepositorio repositorio, [FromBody]AddUsuario addUsuario)
+        public IActionResult CadastrarUsuario([FromServices]IUsuarioRepositorio repositorio, [FromBody]AddUsuario addUsuario)
         {
             var usuario = new Usuario();
             var validacao = new UsuarioValidator().Validate(usuario);
