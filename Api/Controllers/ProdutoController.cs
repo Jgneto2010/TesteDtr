@@ -29,26 +29,9 @@ namespace Api.Controllers
 
             repositorio.Add(prod);
             repositorio.SaveChanges();
-            return Ok(prod);
+            return Created($"api/produto/{prod.NomeProduto}", new { prod.Id, prod.usuario, prod.Fabricacao, prod.Validade });
         }
-
-        //[HttpPost]
-        //[Route("cadastrarProduto")]
-        //public async Task<IActionResult> CadastraProduto([FromServices]IProdutoRepositorio repositorio, [FromBody]AddProduto addProdutoModel)
-        //{
-        //    var produto = new Produto();
-
-        //    produto.NomeProduto = addProdutoModel.NomeProduto;
-        //    produto.Preco = addProdutoModel.Preco;
-        //    produto.Codigo = addProdutoModel.Codigo;
-        //    produto.Fabricacao = DateTime.Now;
-        //    produto.Validade = DateTime.Now.AddMonths(1);
-
-
-        //    repositorio.Add(produto);
-        //    repositorio.SaveChanges();
-        //    return Ok(produto);
-        //}
+        
 
     }
 }
